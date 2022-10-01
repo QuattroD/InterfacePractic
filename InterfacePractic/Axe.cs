@@ -6,15 +6,20 @@ using System.Threading.Tasks;
 
 namespace InterfacePractic
 {
-    internal class ThrowingKnife : IWeapon, IRangeAttack
+    internal class Axe : IWeapon, CombinedAttack
     {
-        public int Damage => 20;
-        public string Name => "Kunai";
+        public int Damage => 30;
+        public string Name => "Axe";
         public int Durability => 100;
 
         public void ShowInfo()
         {
-            Console.WriteLine($"RHit!");
+            Console.WriteLine($"Weapon {Name} damage {Damage}");
+        }
+
+        public void KnifeAttack()
+        {
+            Console.WriteLine($"MeleeHit!");
         }
 
         public void Throw()

@@ -12,6 +12,6 @@ namespace InterfacePractic
         string Name { get; }
         int Durability { get; }
         void ShowInfo();
-        void Repair();
+        //void Repair();
     }
 }
