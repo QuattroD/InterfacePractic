@@ -20,6 +20,7 @@ namespace InterfacePractic
         public void KnifeAttack()
         {
             Console.WriteLine($"MeleeHit!");
+            Durability => 80;
         }
 
         public void Throw()
