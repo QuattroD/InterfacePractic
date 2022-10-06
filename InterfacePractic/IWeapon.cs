@@ -8,10 +8,9 @@ namespace InterfacePractic
 {
     internal interface IWeapon
     {
-        int Damage { get; }
-        string Name { get; }
-        int Durability { get; }
-        void ShowInfo();
-        //void Repair();
+        public int Damage { get; }
+        public string Name { get; }
+        public int Durability { get; }
+        public void GetInfo();
     }
 }

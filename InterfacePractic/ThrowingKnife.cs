@@ -6,20 +6,27 @@ using System.Threading.Tasks;
 
 namespace InterfacePractic
 {
-    internal class ThrowingKnife : IWeapon, IRangeAttack
+    internal class ThrowingKnife : Weapon, IWeapon, IRangeAttack, IRepairWeapon
     {
-        public int Damage => 20;
-        public string Name => "Kunai";
-        public int Durability => 100;
-
-        public void ShowInfo()
+        public ThrowingKnife() : base(20, "Kunai", 10, 1)
         {
-            Console.WriteLine($"RHit!");
         }
 
         public void Throw()
         {
-            Console.WriteLine($"Player throw a {Name} damage done {Damage}");
+            if (this.durability > 0)
+            {
+                this.durability--; 
+                if (this.durability < 0)
+                {
+                    this.durability = 0;
+                }
+                Console.WriteLine($"Player throw a {this.Name} damage done {this.Damage}, current durability - {this.durability}");
+            }
+            else
+            {
+                Console.WriteLine($"weapon destroyed");
+            }
         }
     }
 }

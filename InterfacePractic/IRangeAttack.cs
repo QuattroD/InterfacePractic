@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace InterfacePractic
 {
-    internal interface IRangeAttack
+    internal interface IRangeAttack : IWeapon
     {
-        void Throw();
-        void ShowInfo();
+        public void Throw();
     }
 }

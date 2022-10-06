@@ -6,26 +6,44 @@ using System.Threading.Tasks;
 
 namespace InterfacePractic
 {
-    internal class Axe : IWeapon, CombinedAttack
+    internal class Axe : Weapon, IWeapon, IMeleeAtack, IRangeAttack
     {
-        public int Damage => 30;
-        public string Name => "Axe";
-        public int Durability => 100;
-
-        public void ShowInfo()
+        public Axe() : base(30, "Axe", 10, 1)
         {
-            Console.WriteLine($"Weapon {Name} damage {Damage}");
         }
 
         public void KnifeAttack()
         {
-            Console.WriteLine($"MeleeHit!");
-            Durability => 80;
+            if (this.durability > 0)
+            {
+                this.durability--;
+                if (this.durability < 0)
+                {
+                    this.durability = 0;
+                }
+                Console.WriteLine($"Player attack a {this.Name} damage done {this.Damage}, current durability - {this.durability}");
+            }
+            else
+            {
+                Console.WriteLine($"weapon destroyed");
+            }
         }
 
         public void Throw()
         {
-            Console.WriteLine($"Player throw a {Name} damage done {Damage}");
+            if (this.durability > 0)
+            {
+                this.durability--;
+                if (this.durability < 0)
+                {
+                    this.durability = 0;
+                }
+                Console.WriteLine($"Player throw a {this.Name} damage done {this.Damage}, current durability - {this.durability}");
+            }
+            else
+            {
+                Console.WriteLine($"weapon destroyed");
+            }
         }
     }
 }

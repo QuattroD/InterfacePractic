@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace InterfacePractic
 {
-    internal interface IMeleeAtack : IWeapon
+    internal interface IRepairWeapon
     {
-        void KnifeAttack();
     }
 }

@@ -6,20 +6,28 @@ using System.Threading.Tasks;
 
 namespace InterfacePractic
 {
-    internal class Knife : IWeapon, IMeleeAtack
+    internal class Knife : Weapon, IWeapon, IMeleeAtack
     {
-        public int Damage => 30;
-        public string Name => "M9 BAYONET";
-        public int Durability => 100;
-
-        public void ShowInfo()
+        public Knife() : base(45, "M9 BAYONET", 10, 1)
         {
-            Console.WriteLine($"Weapon {Name} damage {Damage}");
         }
+
 
         public void KnifeAttack()
         {
-            Console.WriteLine($"MeleeHit!");
+            if (this.durability > 0)
+            {
+                this.durability--;
+                if (this.durability < 0)
+                {
+                    this.durability = 0;
+                }
+                Console.WriteLine($"Player attack a {this.Name} damage done {this.Damage}, current durability - {this.durability}");
+            }
+            else
+            {
+                Console.WriteLine($"weapon destroyed");
+            }
         }
     }
 }
